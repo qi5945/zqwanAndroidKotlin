@@ -1,0 +1,58 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.zq.zqwanandroidkotlin"
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+       api project(':uilibrary')
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //support design bottomNavigation
+    implementation 'com.android.support:design:28.0.0'
+
+
+    //net
+    api 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    api 'com.google.code.gson:gson:2.8.2'
+    api 'com.squareup.retrofit2:retrofit:2.3.0'
+    api 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+    api 'com.squareup.okhttp3:logging-interceptor:3.5.0'
+    api 'com.squareup.retrofit2:converter-gson:2.2.0'
+
+    //base recyview adapter
+    implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:$brvah_version"
+
+    //viewpager2
+    implementation 'androidx.viewpager2:viewpager2:1.0.0-alpha01'
+
+}
+
+repositories {
+    mavenCentral()
+}
